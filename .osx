@@ -13,10 +13,17 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
+<<<<<<< HEAD
 sudo scutil --set ComputerName "OPERARIUS"
 sudo scutil --set HostName "OPERARIUS"
 sudo scutil --set LocalHostName "OPERARIUS"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "OPERARIUS"
+=======
+sudo scutil --set ComputerName "OG MBP"
+sudo scutil --set HostName "OG MBP"
+sudo scutil --set LocalHostName "OG-MBP"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "OG-MBP"
+>>>>>>> Updated osx settings to match Mathias changes.
 
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
@@ -40,14 +47,18 @@ defaults write com.apple.systemuiserver menuExtras -array \
 	"/System/Library/CoreServices/Menu Extras/Battery.menu" \
 	"/System/Library/CoreServices/Menu Extras/Clock.menu"
 
-# Set highlight color to green #TODO look for red label string
-defaults write NSGlobalDomain AppleHighlightColor -string '0.764700 0.976500 0.568600'
+# Set highlight color to green
+defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 # Always show scrollbars
+<<<<<<< HEAD
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+=======
+defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
+>>>>>>> Updated osx settings to match Mathias changes.
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 # Disable smooth scrolling
@@ -110,6 +121,7 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+<<<<<<< HEAD
 
 # Disable smart quotes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
@@ -136,6 +148,8 @@ sudo chflags uchg /Private/var/vm/sleepimage
 
 # Disable the sudden motion sensor as it’s not useful for SSDs
 sudo pmset -a sms 0
+=======
+>>>>>>> Updated osx settings to match Mathias changes.
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -199,12 +213,12 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Save screenshots to Screenshots folder
-defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "png"
+defaults write com.apple.screencapture type -string "jpg"
 
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
@@ -223,7 +237,7 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: disable window animations and Get Info animations
-defaults write com.apple.finder DisableAllAnimations -bool true
+# defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Set Desktop as the default location for new Finder windows
 # For other paths, use `PfLo` and `file:///full/path/here/`
@@ -237,7 +251,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true
+# defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -324,6 +338,7 @@ chflags nohidden ~/Library
 # Remove Dropbox’s green checkmark icons in Finder
 file=/Applications/Dropbox.app/Contents/Resources/emblem-dropbox-uptodate.icns
 [ -e "${file}" ] && mv -f "${file}" "${file}.bak"
+<<<<<<< HEAD
 
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
@@ -331,6 +346,8 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	General -bool true \
 	OpenWith -bool true \
 	Privileges -bool true
+=======
+>>>>>>> Updated osx settings to match Mathias changes.
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
@@ -360,7 +377,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 #defaults write com.apple.dock persistent-apps -array ""
 
 # Don’t animate opening applications from the Dock
-defaults write com.apple.dock launchanim -bool false
+# defaults write com.apple.dock launchanim -bool false
 
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
@@ -399,7 +416,11 @@ defaults write com.apple.dock hide-mirror -bool true
 find ~/Library/Application\ Support/Dock -name "*.db" -maxdepth 1 -delete
 
 # Add iOS Simulator to Launchpad
+<<<<<<< HEAD
 sudo ln -sf /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Applications/iOS\ Simulator.app
+=======
+# sudo ln -sf /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Applications/iOS\ Simulator.app
+>>>>>>> Updated osx settings to match Mathias changes.
 
 # Add a spacer to the left side of the Dock (where the applications are)
 #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
@@ -419,14 +440,14 @@ sudo ln -sf /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app 
 # 11: Launchpad
 # 12: Notification Center
 # Top left screen corner → Mission Control
-defaults write com.apple.dock wvous-tl-corner -int 2
-defaults write com.apple.dock wvous-tl-modifier -int 0
+# defaults write com.apple.dock wvous-tl-corner -int 2
+# defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → Desktop
-defaults write com.apple.dock wvous-tr-corner -int 4
-defaults write com.apple.dock wvous-tr-modifier -int 0
+# defaults write com.apple.dock wvous-tr-corner -int 4
+# defaults write com.apple.dock wvous-tr-modifier -int 0
 # Bottom left screen corner → Start screen saver
-defaults write com.apple.dock wvous-bl-corner -int 5
-defaults write com.apple.dock wvous-bl-modifier -int 0
+# defaults write com.apple.dock wvous-bl-corner -int 5
+# defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -504,6 +525,7 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 # Change indexing order and disable some file types
 defaults write com.apple.spotlight orderedItems -array \
+<<<<<<< HEAD
 	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
 	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
 	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
@@ -520,6 +542,24 @@ defaults write com.apple.spotlight orderedItems -array \
 	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
 	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
 	'{"enabled" = 0;"name" = "SOURCE";}'
+=======
+    '{"enabled" = 1;"name" = "APPLICATIONS";}' \
+    '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+    '{"enabled" = 1;"name" = "DIRECTORIES";}' \
+    '{"enabled" = 1;"name" = "PDF";}' \
+    '{"enabled" = 1;"name" = "FONTS";}' \
+    '{"enabled" = 0;"name" = "DOCUMENTS";}' \
+    '{"enabled" = 0;"name" = "MESSAGES";}' \
+    '{"enabled" = 0;"name" = "CONTACT";}' \
+    '{"enabled" = 0;"name" = "EVENT_TODO";}' \
+    '{"enabled" = 0;"name" = "IMAGES";}' \
+    '{"enabled" = 0;"name" = "BOOKMARKS";}' \
+    '{"enabled" = 0;"name" = "MUSIC";}' \
+    '{"enabled" = 0;"name" = "MOVIES";}' \
+    '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+    '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+    '{"enabled" = 0;"name" = "SOURCE";}'
+>>>>>>> Updated osx settings to match Mathias changes.
 # Load new settings before rebuilding the index
 killall mds > /dev/null 2>&1
 # Make sure indexing is enabled for the main volume
@@ -528,14 +568,22 @@ sudo mdutil -i on / > /dev/null
 sudo mdutil -E / > /dev/null
 
 ###############################################################################
+<<<<<<< HEAD
 # Terminal & iTerm 2                                                          #
+=======
+# Terminal                                                                    #
+>>>>>>> Updated osx settings to match Mathias changes.
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Pro theme by default in Terminal.app
+<<<<<<< HEAD
 open "${HOME}/init/Omar.terminal"
+=======
+open "${HOME}/init/Mathias.terminal"
+>>>>>>> Updated osx settings to match Mathias changes.
 sleep 1 # Wait a bit to make sure the theme is loaded
 defaults write com.apple.terminal "Default Window Settings" -string "Omar"
 defaults write com.apple.terminal "Startup Window Settings" -string "Omar"
@@ -640,6 +688,13 @@ defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://
 defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault -bool false
 
 ###############################################################################
+# GPGMail 2                                                                   #
+###############################################################################
+
+# Disable signing emails by default
+defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault -bool false
+
+###############################################################################
 # SizeUp.app                                                                  #
 ###############################################################################
 
@@ -704,9 +759,16 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 # Kill affected applications                                                  #
 ###############################################################################
 
+<<<<<<< HEAD
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
 	"Terminal" "Transmission" "Twitter" "iCal"; do
 	killall "${app}" > /dev/null 2>&1
+=======
+for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
+    "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" "Terminal" \
+    "Transmission" "Twitter" "iCal"; do
+    killall "${app}" > /dev/null 2>&1
+>>>>>>> Updated osx settings to match Mathias changes.
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
