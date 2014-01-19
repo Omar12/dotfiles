@@ -38,9 +38,3 @@ set convert-meta off
 
 # Use Alt/Meta + Delete to delete the preceding word
 "\e[3;3~": kill-word
-
-# search most used parameters on command (ie. cd [parameter])
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-set show-all-if-ambiguous on
-set completion-ignore-case on
