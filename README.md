@@ -1,4 +1,9 @@
-# Mathias’s dotfiles
+# Omar's dotfiles
+(based on Mathias’s dotfiles)
+
+## Todo
+* Install brew
+* Install nvm
 
 ## Installation
 

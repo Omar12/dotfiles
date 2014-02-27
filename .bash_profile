@@ -45,13 +45,13 @@ export PS1="\W \$"
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 
 export MARKPATH=$HOME/.marks
-function jump { 
+function jump {
     cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
-function mark { 
+function mark {
     mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
 }
-function unmark { 
+function unmark {
     rm -i "$MARKPATH/$1"
 }
 function marks {
@@ -66,3 +66,8 @@ _completemarks() {
 }
 
 complete -F _completemarks jump unmark
+
+# Link MAMP php and mysql bins to the system
+# * update php versions
+export PATH=/Applications/MAMP/bin/php/php5.4.10/bin:$PATH
+export PATH=$PATH:/Applications/MAMP/Library/bin
