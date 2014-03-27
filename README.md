@@ -1,9 +1,17 @@
 # Omar's dotfiles
 (based on Mathias’s dotfiles)
 
-## Todo
-* Install brew
-* Install nvm
+## Installs
+* brew
+* node & npm
+  * bower
+  * yeoman
+  * gulp
+* nvm
+* rvm
+  * ruby-1.9.3-p374
+  * sass
+  * compass
 
 ## Installation
 
@@ -32,7 +40,7 @@ set -- -f; source bootstrap.sh
 To install these dotfiles without Git:
 
 ```bash
-cd; curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt}
+cd; curl -#L https://github.com/omar12/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt}
 ```
 
 To update later on, just run that command again.
