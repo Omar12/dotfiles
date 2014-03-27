@@ -1,40 +1,50 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Blackboard.tmTheme",
-	"default_line_ending": "unix",
-	"show_line_endings": true,
-	"default_encoding": "UTF-8",
-	"show_encoding": true,
-	"detect_indentation": false,
-	"draw_white_space": "all",
-	"ensure_newline_at_eof_on_save": false,
-	"file_exclude_patterns":
-	[
-		".DS_Store",
-		"Desktop.ini",
-		"*.pyc",
-		"._*",
-		"Thumbs.db",
-		".Spotlight-V100",
-		".Trashes"
-	],
+	"auto_complete": true,
+	"bold_folder_labels": true,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
 	"folder_exclude_patterns":
 	[
+		".svn",
 		".git",
-		"node_modules"
+		".sass-cache",
+		"tmp"
 	],
-	"font_size": 14,
-	"highlight_modified_tabs": true,
+	"font_face": "Source Code Pro",
+	"font_size": 14.0,
+	"highlight_line": true,
 	"hot_exit": false,
-	"line_padding_bottom": 6,
-	"match_brackets": true,
-	"match_brackets_angle": true,
-	"remember_open_files": false,
-	"rulers":
+	"ignored_packages":
 	[
-		80
+		"Search Stack Overflow",
+		"Syntax Highlighting for Sass",
+		"SublimeCodeIntel",
+		"SQL",
+		"Backbone.Marionette",
+		"Vintage",
+		"jQuery Snippets pack",
+		"PlainTasks",
+		"C++",
+		"HtmlTidy",
+		"Lua",
+		"CSSTidy",
+		"ASP",
+		"Matlab",
+		"AngularJS",
+		"ActionScript",
+		"JsFormat",
+		"Minify",
+		"Hayaku - tools for writing CSS faster",
+		"JSHint Gutter"
 	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"match_brackets_angle": true,
+	"remember_open_files": true,
+	"soda_classic_tabs": false,
 	"tab_size": 2,
-	"translate_tabs_to_spaces": false,
+	"theme": "Spacegray.sublime-theme",
+	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"word_wrap": true
+	"word_wrap": false
 }
