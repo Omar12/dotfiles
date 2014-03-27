@@ -272,6 +272,7 @@ function s() {
 	fi
 }
 
+<<<<<<< HEAD
 # `a` with no arguments opens the current directory in Atom Editor, otherwise
 # opens the given location
 function a() {
@@ -282,6 +283,8 @@ function a() {
 	fi
 }
 
+=======
+>>>>>>> FETCH_HEAD
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
 function v() {
@@ -306,7 +309,10 @@ function o() {
 # defaults to `patch`
 function np() {
 	git pull --rebase && \
+<<<<<<< HEAD
 	rm -rf node_modules && \
+=======
+>>>>>>> FETCH_HEAD
 	npm install && \
 	npm test && \
 	npm version ${1:=patch} && \
@@ -321,4 +327,8 @@ function np() {
 # small enough for one screen.
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> FETCH_HEAD
