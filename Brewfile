@@ -25,7 +25,6 @@ install narwhal
 # Install more recent versions of some OS X tools
 install vim --override-system-vi
 install homebrew/dupes/grep
-install josegonzalez/homebrew-php/php55
 
 # This formula didn’t work well last time I tried it:
 #install homebrew/dupes/screen
@@ -37,7 +36,8 @@ install pv
 install git
 install imagemagick --with-webp
 install lynx
-install node
+install nvm
+install rvm
 install pigz
 install rename
 install rhino

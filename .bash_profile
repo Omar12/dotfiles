@@ -1,6 +1,8 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 
+export PATH=/usr/local/bin:$PATH
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -67,7 +69,6 @@ _completemarks() {
 
 complete -F _completemarks jump unmark
 
-# Link MAMP php and mysql bins to the system
-# * update php versions
-export PATH=/Applications/MAMP/bin/php/php5.4.10/bin:$PATH
-export PATH=$PATH:/Applications/MAMP/Library/bin
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+# [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
