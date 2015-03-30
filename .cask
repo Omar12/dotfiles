@@ -11,7 +11,6 @@ installcask google-chrome
 installcask google-chrome-canary
 installcask imagealpha
 installcask imageoptim
-installcask iterm2
 installcask macvim
 installcask miro-video-converter
 installcask opera
