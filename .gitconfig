@@ -32,6 +32,8 @@
 	ds = diff --staged
 	# undo last changes (make sure they are not pushed)
 	undo = reset --soft HEAD^
+	# Push the current branch to remote
+	ph = push origin HEAD
 
 [apply]
 	# Detect whitespace errors when applying a patch
