@@ -5,12 +5,10 @@
 	st = status -s
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
-	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
 	# Clone a repository including all submodules
-	c = clone --recursive
+	cl = clone --recursive
 	# Commit all changes
 	ca = !git add -A && git commit -av
 	# Switch to a branch, creating it if necessary
@@ -28,8 +26,6 @@
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 	# list files
 	ls = ls-files
-	# difference on files
-	ds = diff --staged
 	# undo last changes (make sure they are not pushed)
 	undo = reset --soft HEAD^
 	# Push the current branch to remote
