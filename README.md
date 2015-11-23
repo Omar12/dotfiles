@@ -1,18 +1,6 @@
 # Omar's dotfiles
 (based on Mathias’s dotfiles)
 
-## Installs
-* brew
-* node & npm
-  * bower
-  * yeoman
-  * gulp
-* nvm
-* rvm
-  * ruby-1.9.3-p374
-  * sass
-  * compass
-
 ## Installation
 
 ### Using Git and the bootstrap script
