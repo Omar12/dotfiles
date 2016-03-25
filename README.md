@@ -98,6 +98,11 @@ You could also install native apps with [`brew cask`](https://github.com/phinze/
 ./.cask
 ```
 
+### Install oh-my-zsh
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
 ## Feedback
 
 Suggestions/improvements
