@@ -41,7 +41,7 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # Remove the Computer Name and Username from Terminal command line
-export PS1="\W \$"
+export PS1="\W 🌮  "
 
 # Quickly Navigate the filesystem
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
