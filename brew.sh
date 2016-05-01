@@ -73,6 +73,7 @@ brew install tree
 brew install webkit2png
 brew install zopfli
 brew install zsh
+brew install python3
 
 brew install homebrew/versions/lua52
 
