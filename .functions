@@ -245,30 +245,13 @@ function unquarantine() {
 	done
 }
 
-# Install Grunt plugins and add them as `devDependencies` to `package.json`
-# Usage: `gi contrib-watch contrib-uglify zopfli`
-function gi() {
-	local IFS=,
-	eval npm install --save-dev grunt-{"$*"}
-}
-
-# `m` with no arguments opens the current directory in TextMate, otherwise
+# `m` with no arguments opens the current directory in Code, otherwise
 # opens the given location
-function m() {
+function c() {
 	if [ $# -eq 0 ]; then
-		mate .
+		code .
 	else
-		mate "$@"
-	fi
-}
-
-# `s` with no arguments opens the current directory in Sublime Text, otherwise
-# opens the given location
-function s() {
-	if [ $# -eq 0 ]; then
-		subl .
-	else
-		subl "$@"
+		code "$@"
 	fi
 }
 
