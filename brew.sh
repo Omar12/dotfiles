@@ -75,6 +75,7 @@ brew install zopfli
 brew install zsh
 brew install pyenv
 brew install httpie
+brew install youtube-dl
 
 brew install homebrew/versions/lua52
 
