@@ -110,6 +110,10 @@
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
+
 # URL shorthands
 [url "git@github.com:"]
 	insteadOf = "gh:"

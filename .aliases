@@ -12,7 +12,6 @@ alias drop="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias desk="cd ~/Desktop"
 alias p="cd ~/projects"
-alias g="git"
 alias h="history"
 
 # Detect which `ls` flavor is in use
@@ -148,3 +147,12 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# List Global node modules
+alias nodeinstalled="ls `npm root -g`"
+
+# Clean a git directory
+alias gitclean="rm -rf .git"
+
+# Open fzf with pretty previews
+alias preview="fzf --preview 'bat --color \"always\" {}'"

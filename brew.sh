@@ -61,7 +61,7 @@ brew install git-lfs
 brew install imagemagick --with-webp
 brew install lua
 brew install lynx
-brew install nvm
+brew install node
 brew install rvm
 brew install pigz
 brew install p7zip
@@ -76,6 +76,12 @@ brew install zsh
 brew install pyenv
 brew install httpie
 brew install youtube-dl
+brew install fzf
+brew install diff-so-fancy
+brew install htop # http://hisham.hm/htop/
+
+# To install useful key bindings and fuzzy completion:
+# $(brew --prefix)/opt/fzf/install
 
 brew install homebrew/versions/lua52
 
