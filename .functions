@@ -305,3 +305,9 @@ function np() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
 }
+
+# Usage: cheat $command (cheat tar)
+# Echos a cheat sheet of the command.
+function cheat() {
+      curl cht.sh/$1
+  }
