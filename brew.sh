@@ -44,7 +44,6 @@ brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
-brew install homebrew/php/php55 --with-gmp
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -61,7 +60,7 @@ brew install git-lfs
 brew install imagemagick --with-webp
 brew install lua
 brew install lynx
-brew install node
+brew install nvm
 brew install rvm
 brew install pigz
 brew install p7zip
@@ -79,6 +78,8 @@ brew install youtube-dl
 brew install fzf
 brew install diff-so-fancy
 brew install htop # http://hisham.hm/htop/
+brew install yarn
+brew install httpie # https://httpie.org/
 
 # To install useful key bindings and fuzzy completion:
 # $(brew --prefix)/opt/fzf/install

@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/Users/omar12/.oh-my-zsh
+export ZSH=/Users/omar12/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,11 +49,11 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm node gulp gem zsh-syntax-highlighting)
+plugins=(git npm node gulp gem zsh-syntax-highlighting zsh-nvm)
 
 # User configuration
 
-  export PATH="/Users/omar12/.rvm/gems/ruby-2.2.1/bin:/Users/omar12/.rvm/gems/ruby-2.2.1@global/bin:/Users/omar12/.rvm/rubies/ruby-2.2.1/bin:/Users/omar12/.nvm/versions/node/v5.9.0/bin:/usr/local/bin:/Users/omar12/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/omar12/.rvm/bin"
+export PATH="$PATH:/usr/local/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -89,3 +89,7 @@ source $ZSH/oh-my-zsh.sh
 
 # ZSH syntax highlighting
 # [ -r "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [ -f ~/.bash_profile ]; then 
+    . ~/.bash_profile;
+fi

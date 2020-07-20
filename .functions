@@ -266,3 +266,9 @@ function tre() {
 function cheat() {
       curl cht.sh/$1
   }
+
+# Pass the youtube URL to download song
+# eg. youtube-mp3 https://youtu.be/TDaPIxrgJr8
+function youtube-mp3() {
+	youtube-dl --extract-audio --audio-format mp3 $1
+}
