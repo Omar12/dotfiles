@@ -1,11 +1,12 @@
 npm #!/usr/bin/env bash
 
-npm install -g typescript
-npm install -g nodemon
-npm install -g create-react-app
-npm install -g tldr
-npm install -g gatsby-cli
-npm install -g eslint
-npm install -g now
-npm install -g json-server
-npm install -g netlify-cli
+npm i -g typescript
+npm i -g nodemon
+npm i -g create-react-app
+npm i -g tldr
+npm i -g gatsby-cli
+npm i -g eslint
+npm i -g now
+npm i -g vercel
+npm i -g json-server
+npm i -g netlify-cli

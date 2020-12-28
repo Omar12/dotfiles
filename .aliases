@@ -10,9 +10,9 @@ alias -- -="cd -"
 alias home="cd ~/"
 alias drop="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
-alias d="cd ~/Desktop"
+alias desk="cd ~/Desktop"
 alias p="cd ~/projects"
-alias h="history"
+alias h="histdb"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

@@ -93,3 +93,21 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.bash_profile ]; then 
     . ~/.bash_profile;
 fi
+
+# open ~/.zshrc in using the default editor specified in $EDITOR
+alias ec="$EDITOR $HOME/.zshrc"
+# source ~/.zshrc
+alias sc="source $HOME/.zshrc"
+
+# Markdown files
+alias -s md=code
+# JSON files
+alias -s json=code
+# bulk association
+alias -s {cs,ts,html}=code
+
+# Examples
+# echo "#Hello World" > sample.md
+# now type the name of the file and commit via ENTER
+# sample.md
+
