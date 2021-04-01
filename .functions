@@ -210,16 +210,6 @@ function c() {
 	fi
 }
 
-# `a` with no arguments opens the current directory in Atom Editor, otherwise
-# opens the given location
-function a() {
-	if [ $# -eq 0 ]; then
-		atom .
-	else
-		atom "$@"
-	fi
-}
-
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
 function v() {
@@ -268,7 +258,12 @@ function cheat() {
   }
 
 # Pass the youtube URL to download song
-# eg. youtube-mp3 https://youtu.be/TDaPIxrgJr8
+# usage: youtube-mp3 https://youtu.be/TDaPIxrgJr8 --extra-params
 function youtube-mp3() {
-	youtube-dl --extract-audio --audio-format mp3 $1
+	youtube-dl -i --extract-audio --audio-format mp3 $2 $1
+}
+
+function convertmp3() {
+# usage: convertmp3 my_audio.wav
+	ffmpeg -i $1.wav -vn -ar 44100 -ac 2 -b:a 192k $1.mp3
 }
