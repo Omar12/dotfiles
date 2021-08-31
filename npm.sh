@@ -10,3 +10,4 @@ npm i -g now
 npm i -g vercel
 npm i -g json-server
 npm i -g netlify-cli
+npm i -g parcel-bundler
