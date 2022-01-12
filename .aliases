@@ -150,3 +150,5 @@ alias gitclean="rm -rf .git"
 
 # Open fzf with pretty previews
 alias preview="fzf --preview 'bat --color \"always\" {}'"
+
+alias love="/Applications/love.app/Contents/MacOS/love"

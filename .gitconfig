@@ -33,7 +33,7 @@
 	# Find commits by commit message
 	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 	
-	# Remove branches that have already been merged with master
+	# Remove branches that have already been merged with master/main
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 	# list files
 	ls = ls-files
@@ -71,6 +71,7 @@
 	# Make `git rebase` safer on OS X
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
+	editor = code --wait
 
 [color]
 	# Use colors in Git commands that are capable of colored output when
@@ -110,15 +111,12 @@
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 
-[pager]
-	diff = diff-so-fancy | less --tabs=1,5 -RFX
-	show = diff-so-fancy | less --tabs=1,5 -RFX
-
 # URL shorthands
 [url "git@github.com:"]
-	insteadOf = "gh:"
+#	insteadOf = "gh:"
 	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
+#	insteadOf = https://github.com/
 [url "git://github.com/"]
 	insteadOf = "github:"
 [url "git@gist.github.com:"]
@@ -130,3 +128,21 @@
 
 [push]
 	default = matching
+[user]
+	name = Omar Martinez
+	email = changeme@gmail.com
+[credential]
+	helper = osxkeychain
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff --new-window $LOCAL $REMOTE
+[credential "https://dev.azure.com"]
+	useHttpPath = true
