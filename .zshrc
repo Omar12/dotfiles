@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/omar12/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,11 +49,11 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm node gulp gem zsh-syntax-highlighting zsh-nvm)
+plugins=(git zsh-syntax-highlighting)
 
 # User configuration
 
-export PATH="$PATH:/usr/local/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.rvm/bin"
+# export PATH="$PATH:/usr/local/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -84,8 +84,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Aliases, exports and extras
-[ -r "$HOME/.aliases" ] && source "$HOME/.aliases"
-[ -r "$HOME/.exports" ] && source "$HOME/.exports"
+[ -r "$HOME/project/dotfiles/.aliases" ] && source "$HOME/project/dotfiles/.aliases"
+[ -r "$HOME/project/dotfiles/.exports" ] && source "$HOME/project/dotfiles/.exports"
 
 # ZSH syntax highlighting
 # [ -r "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -111,3 +111,5 @@ alias -s {cs,ts,html}=code
 # now type the name of the file and commit via ENTER
 # sample.md
 
+source $HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh
+autoload -Uz add-zsh-hook
