@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # ZSH syntax highlighting
 # [ -r "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-if [ -f ~/.bash_profile ]; then 
+if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile;
 fi
 
@@ -104,7 +104,7 @@ alias -s md=code
 # JSON files
 alias -s json=code
 # bulk association
-alias -s {cs,ts,html}=code
+alias -s {cs,ts,html,js}=code
 
 # Examples
 # echo "#Hello World" > sample.md
@@ -113,3 +113,5 @@ alias -s {cs,ts,html}=code
 
 source $HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh
 autoload -Uz add-zsh-hook
+
+export PS1="✨"

@@ -53,6 +53,8 @@ brew install woff2
 
 # Install other useful binaries
 brew install ack
+brew install bat
+brew install exa
 brew install dark-mode
 brew install pv
 brew install git
@@ -67,21 +69,24 @@ brew install pigz
 brew install p7zip
 brew install rename
 brew install rhino
-brew install speedtest_cli
 brew install ssh-copy-id
 brew install tree
 brew install webkit2png
 brew install zopfli
-brew install zsh
 brew install pyenv
 brew install youtube-dl
+brew install ffmpeg
 brew install fzf
-brew install diff-so-fancy
+brew install difftastic
 brew install htop # http://hisham.hm/htop/
 brew install yarn
 brew install jq
 brew install httpie # https://httpie.org/
 brew install carthage
+brew install thefuck
+brew install rust
+brew install datasette
+brew install gh
 
 # To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install

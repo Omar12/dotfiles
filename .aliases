@@ -152,3 +152,11 @@ alias gitclean="rm -rf .git"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 alias love="/Applications/love.app/Contents/MacOS/love"
+
+alias cl="clear"
+alias npmscripts="bat package.json | jq \".scripts\""
+# alias python=python3
+alias autogpt="cd ~/projects/Auto-GPT && docker run -it --env-file=./.env -v $PWD/auto_gpt_workspace:/app/auto_gpt_workspace autogpt"
+
+alias python="/opt/homebrew/bin/python3"
+alias python3="/opt/homebrew/bin/python3"
