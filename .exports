@@ -11,6 +11,9 @@ export HISTSIZE='32768';
 export HISTFILESIZE="${HISTSIZE}";
 # Omit duplicates and commands that begin with a space from history.
 export HISTCONTROL='ignoreboth';
+# HISTORY Enhancements
+export HIST_STAMPS="yyyy-mm-dd"
+export HISTORY_IGNORE="(ls|cd|pwd|exit|cd)*"
 
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8';
@@ -24,3 +27,6 @@ export MANPAGER='less -X';
 
 # Always enable colored `grep` output.
 export GREP_OPTIONS='--color=auto';
+
+export OPENAI_API_KEY=<OPENAI_API_KEY>
+export OLLAMA_ORIGINS="chrome-extension://*"

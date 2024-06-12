@@ -74,7 +74,7 @@ brew install tree
 brew install webkit2png
 brew install zopfli
 brew install pyenv
-brew install youtube-dl
+brew install yt-dlp
 brew install ffmpeg
 brew install fzf
 brew install difftastic

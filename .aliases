@@ -141,9 +141,11 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+alias rl="exec $SHELL -l"
 
 # List Global node modules
 alias npmglobal="ls `npm root -g`"
+alias npmscripts="bat package.json | jq \".scripts\""
 
 # Clean a git directory
 alias gitclean="rm -rf .git"
@@ -154,9 +156,12 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 alias love="/Applications/love.app/Contents/MacOS/love"
 
 alias cl="clear"
-alias npmscripts="bat package.json | jq \".scripts\""
-# alias python=python3
-alias autogpt="cd ~/projects/Auto-GPT && docker run -it --env-file=./.env -v $PWD/auto_gpt_workspace:/app/auto_gpt_workspace autogpt"
 
 alias python="/opt/homebrew/bin/python3"
 alias python3="/opt/homebrew/bin/python3"
+alias pip=pip3
+
+# AI Tools!
+alias fooocus="cd ~/projects/agi-tools/Fooocus/ && python3 entry_with_update.py"
+alias agentgpt="cd ~/projects/agi-tools/AgentGPT/ && ./setup.sh"
+alias autogpt="cd ~/projects/Auto-GPT && docker run -it --env-file=./.env -v $PWD/auto_gpt_workspace:/app/auto_gpt_workspace autogpt"
