@@ -15,4 +15,3 @@ npm i -g spotifydl
 npm i -g ava
 npm i -g tsc
 npm i -g parcel-bundler
-npm i -g @anthropic-ai/claude-code
