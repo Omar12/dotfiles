@@ -1,117 +1,34 @@
-# Path to your oh-my-zsh installation.
+# ── oh-my-zsh ─────────────────────────────────────────────────────────────────
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Plugins: git provides aliases, zsh-syntax-highlighting colorizes commands
+# zsh-histdb must be installed manually (see manual_installations.md)
 plugins=(git zsh-syntax-highlighting)
-
-# User configuration
-
-# export PATH="$PATH:/usr/local/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.rvm/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Aliases, exports and extras
+# ── Dotfile modules ───────────────────────────────────────────────────────────
+# Source shared shell config. Note: .bash_profile also sources these files, so
+# they will be loaded again if zsh was launched from bash — that is harmless.
 [ -r "$HOME/project/dotfiles/.aliases" ] && source "$HOME/project/dotfiles/.aliases"
 [ -r "$HOME/project/dotfiles/.exports" ] && source "$HOME/project/dotfiles/.exports"
 
-# ZSH syntax highlighting
-# [ -r "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile;
+	. ~/.bash_profile
 fi
 
-# open ~/.zshrc in using the default editor specified in $EDITOR
-alias ec="$EDITOR $HOME/.zshrc"
-# source ~/.zshrc
-alias sc="source $HOME/.zshrc"
-
-# Markdown files
-alias -s md=code
-# JSON files
-alias -s json=code
-# bulk association
-alias -s {cs,ts,html,js}=code
-
-# Examples
-# echo "#Hello World" > sample.md
-# now type the name of the file and commit via ENTER
-# sample.md
-
+# ── zsh-histdb ────────────────────────────────────────────────────────────────
 source $HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh
 autoload -Uz add-zsh-hook
 
-export PS1="✨"
+# ── Aliases ───────────────────────────────────────────────────────────────────
+alias ec="$EDITOR $HOME/.zshrc"   # edit this file
+alias sc="source $HOME/.zshrc"    # reload this file
+
+# ── File associations (suffix aliases) ────────────────────────────────────────
+# Typing a filename opens it in VS Code
+alias -s md=code
+alias -s json=code
+alias -s {cs,ts,html,js}=code

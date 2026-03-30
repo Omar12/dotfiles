@@ -88,6 +88,9 @@ brew install rust
 brew install datasette
 brew install gh
 
+# Claude Code (AI coding assistant — https://claude.ai/code)
+brew install --cask claude-code
+
 # To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
 
