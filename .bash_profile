@@ -80,10 +80,12 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 
 # bash-git-prompt
 # <https://github.com/magicmonty/bash-git-prompt>
-if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
-  GIT_PROMPT_ONLY_IN_REPO=1
-  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+if command -v brew > /dev/null; then
+  if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+  fi
 fi
 
 # Load RVM into a shell session *as a function*
@@ -102,4 +104,7 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
+# Golang environment variables
+export GOROOT=/opt/homebrew/bin/go
 export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:

@@ -1,55 +1,39 @@
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
-	
 	# View the current working tree status using the short format
 	st = status -s
-	
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-	
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
-	
 	# Clone a repository including all submodules
 	cl = clone --recursive
-	
 	# Commit all changes
 	ca = !git add -A && git commit -av
-	
 	# Switch to a branch, creating it if necessary
 	go = checkout -B
-	
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
-	
 	# show all branches
 	branches = branch -a
 	remotes = remote -v
-	
 	# Find commits by source code
 	fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
-	
 	# Find commits by commit message
 	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
-	
 	# Remove branches that have already been merged with master/main
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 	# list files
 	ls = ls-files
-	
 	# undo last changes (make sure they are not pushed)
 	undo = reset --soft HEAD^
-	
 	# Push the current branch to remote
 	ph = push origin HEAD
-	
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
-
 	# Credit an author on the latest commit
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
-
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
 
@@ -61,39 +45,47 @@
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
-	
+
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error.
 	# [default] trailing-space: looks for spaces at the end of a line
 	# [default] space-before-tab: looks for spaces before tabs at the beginning of
 	# a line
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
-	
+
 	# Make `git rebase` safer on OS X
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 	editor = code --wait
 
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[init]
+	defaultBranch = main
 [color]
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
 	ui = auto
-	
+
 [color "branch"]
 	current = yellow reverse
 	local = yellow
 	remote = green
-	
+
 [color "diff"]
 	meta = yellow bold
 	frag = magenta bold
 	old = red bold
 	new = green bold
-	
+
 [color "status"]
 	added = yellow
 	changed = green
 	untracked = cyan
-	
+
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
@@ -103,13 +95,13 @@
 	autocorrect = 1
 
 [push]
-
 	# Use the Git 1.x.x default to avoid errors on machines with old Git
 	# installations. To use `simple` instead, add this to your `~/.extra` file:
 	# `git config --global push.default simple`. See http://git.io/mMah-w.
 	default = matching
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+	autoSetupRemote = true
 
 # URL shorthands
 [url "git@github.com:"]
@@ -126,22 +118,28 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
-[push]
-	default = matching
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
 [user]
-	name = Omar Martinez
-	email = changeme@gmail.com
+	name = Omar Martinosa
+	email = this.is.omartinez@gmail.com
 [credential]
 	helper = osxkeychain
-	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager-core
+	helper =
+	# helper = /usr/local/share/gcm-core/git-credential-manager-core
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 [diff]
-    tool = default-difftool
+	tool = default-difftool
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [difftool "default-difftool"]
     cmd = code --wait --diff --new-window $LOCAL $REMOTE
 [credential "https://dev.azure.com"]
