@@ -114,8 +114,6 @@ HISTDB="$HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh"
 [ -r "$HISTDB" ] && source "$HISTDB"
 autoload -Uz add-zsh-hook
 
-export PS1="✨"
-
 if command -v zoxide > /dev/null; then
   eval "$(zoxide init zsh)"
 fi
