@@ -52,15 +52,19 @@ My `~/.extra` looks something like this:
 ```bash
 # Git credentials
 # Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="Mathias Bynens"
+GIT_AUTHOR_NAME="Omar Martinez"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="mathias@mailinator.com"
+GIT_AUTHOR_EMAIL="you@example.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 ```
 
-You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles/fork) instead, though.
+You can also use `~/.extra` to override settings, functions and aliases.
+
+**Secrets live in `~/.extra` only.** API keys and tokens must never go in `.exports`,
+`.zshrc` or `.functions` — those are tracked. `~/.extra` is absent from this repo, so
+`bootstrap.sh` never overwrites it and git never sees it.
 
 ### Sensible OS X defaults
 
@@ -70,20 +74,14 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 ./.osx
 ```
 
-### Install Homebrew formulae
 
-When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
+### Install Homebrew packages
 
-```bash
-./brew.sh
-```
-
-### Install native apps with `brew cask`
-
-You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
+`Brewfile` is a snapshot of the installed formulae, casks and taps
+(regenerate it with `brew bundle dump --force`):
 
 ```bash
-./.cask
+brew bundle
 ```
 
 ### Install oh-my-zsh

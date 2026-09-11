@@ -83,16 +83,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Aliases, exports and extras
-[ -r "$HOME/project/dotfiles/.aliases" ] && source "$HOME/project/dotfiles/.aliases"
-[ -r "$HOME/project/dotfiles/.exports" ] && source "$HOME/project/dotfiles/.exports"
+# Shared dotfiles. Same set ~/.bash_profile loads, minus the bash-only bits.
+# ~/.path and ~/.extra are untracked (PATH additions, git identity, secrets).
+for file in ~/.{path,exports,aliases,functions,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file"
+done
+unset file
 
-# ZSH syntax highlighting
-# [ -r "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-if [ -f ~/.bash_profile ]; then
-    . ~/.bash_profile;
-fi
+# Drop duplicate $PATH entries
+typeset -U path PATH
 
 # open ~/.zshrc in using the default editor specified in $EDITOR
 alias ec="$EDITOR $HOME/.zshrc"
@@ -111,11 +110,17 @@ alias -s {cs,ts,html,js}=code
 # now type the name of the file and commit via ENTER
 # sample.md
 
-source $HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh
+HISTDB="$HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh"
+[ -r "$HISTDB" ] && source "$HISTDB"
 autoload -Uz add-zsh-hook
 
 export PS1="✨"
 
-eval "$(zoxide init zsh)"
+if command -v zoxide > /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
 
-source <(fzf --zsh)
+# Check for fzf
+if command -v fzf > /dev/null; then
+  source <(fzf --zsh)
+fi
