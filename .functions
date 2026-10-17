@@ -181,13 +181,13 @@ function tre() {
 }
 
 # Usage: cheat $command (cheat tar)
-# Echos a cheat sheet of the command.
+# Fetches a cheat sheet for the given command from cht.sh
 function cheat() {
-  curl cht.sh/$1
+	curl cht.sh/$1
 }
 
 # Pass the youtube URL to download song
-# usage: youtube-mp3 https://youtu.be/TDaPIxrgJr8 --extra-params
+# usage: yt-mp3 https://youtu.be/TDaPIxrgJr8 --extra-params
 function yt-mp3() {
 	yt-dlp -i --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s" $2 $1
 }
@@ -197,8 +197,9 @@ function yt-dlp-subs() {
 	yt-dlp --embed-subs --write-auto-sub $2 $1
 }
 
+# Convert a WAV file to MP3 at 192kbps stereo 44.1kHz
+# Usage: convertmp3 my_audio  (omit the extension)
 function convertmp3() {
-# usage: convertmp3 my_audio.wav
 	ffmpeg -i $1.wav -vn -ar 44100 -ac 2 -b:a 192k $1.mp3
 }
 

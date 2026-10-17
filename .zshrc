@@ -1,89 +1,16 @@
-# Path to your oh-my-zsh installation.
+# ── oh-my-zsh ─────────────────────────────────────────────────────────────────
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Plugins: git provides aliases, zsh-syntax-highlighting colorizes commands
+# zsh-histdb must be installed manually (see manual_installations.md)
 plugins=(git zsh-syntax-highlighting)
-
-# User configuration
-
-# export PATH="$PATH:/usr/local/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.rvm/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Shared dotfiles. Same set ~/.bash_profile loads, minus the bash-only bits.
+# ── Dotfile modules ───────────────────────────────────────────────────────────
+# Same set ~/.bash_profile loads, minus the bash-only bits.
 # ~/.path and ~/.extra are untracked (PATH additions, git identity, secrets).
 for file in ~/.{path,exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
@@ -93,32 +20,21 @@ unset file
 # Drop duplicate $PATH entries
 typeset -U path PATH
 
-# open ~/.zshrc in using the default editor specified in $EDITOR
-alias ec="$EDITOR $HOME/.zshrc"
-# source ~/.zshrc
-alias sc="source $HOME/.zshrc"
-
-# Markdown files
-alias -s md=code
-# JSON files
-alias -s json=code
-# bulk association
-alias -s {cs,ts,html,js}=code
-
-# Examples
-# echo "#Hello World" > sample.md
-# now type the name of the file and commit via ENTER
-# sample.md
-
+# ── zsh-histdb ────────────────────────────────────────────────────────────────
 HISTDB="$HOME/.oh-my-zsh/custom/plugins/zsh-histdb/sqlite-history.zsh"
 [ -r "$HISTDB" ] && source "$HISTDB"
 autoload -Uz add-zsh-hook
 
-if command -v zoxide > /dev/null; then
-  eval "$(zoxide init zsh)"
-fi
+# ── zoxide / fzf ──────────────────────────────────────────────────────────────
+command -v zoxide > /dev/null && eval "$(zoxide init zsh)"
+command -v fzf > /dev/null && source <(fzf --zsh)
 
-# Check for fzf
-if command -v fzf > /dev/null; then
-  source <(fzf --zsh)
-fi
+# ── Aliases ───────────────────────────────────────────────────────────────────
+alias ec="$EDITOR $HOME/.zshrc"   # edit this file
+alias sc="source $HOME/.zshrc"    # reload this file
+
+# ── File associations (suffix aliases) ────────────────────────────────────────
+# Typing a filename opens it in VS Code
+alias -s md=code
+alias -s json=code
+alias -s {cs,ts,html,js}=code

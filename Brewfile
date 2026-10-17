@@ -187,6 +187,8 @@ cask "applite"
 cask "stupside/tap/castor", trusted: true
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
+# Anthropic's agentic coding tool
+cask "claude-code"
 # Disk space visualiser
 cask "daisydisk"
 # Downloads videos from different websites
