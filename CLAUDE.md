@@ -14,7 +14,7 @@ source bootstrap.sh -f    # no prompt
 brew bundle               # install everything in Brewfile
 brew bundle dump --force  # regenerate Brewfile from what's installed
 source npm.sh             # global npm packages
-source .osx               # macOS defaults (728 lines, restarts Finder/Dock)
+bash .osx                 # macOS defaults (restarts Finder/Dock); never `source` it
 ```
 
 Verifying a change: no test suite. `bash -n <file>` / `zsh -n <file>` for syntax, then `bash bootstrap.sh -f` and `zsh -i -c 'echo ok'` to confirm a clean interactive startup (it should print nothing but `ok`; warnings there are real regressions). Editing a file in the repo does **not** affect running shells — `bootstrap.sh` copies to `~` and those copies are what shells read.
@@ -52,6 +52,6 @@ rsyncs everything except `.git/`, `.DS_Store`, `.osx`, `bootstrap.sh`, `README.m
 
 `.gitconfig` — aliases (`l`, `st`, `d`, `ca`, `go`, `dm`, `ph`, `reb`); identity is set from `~/.extra`, not here. `.vimrc` — Molokai, 2-space tabs, centralized backups. `iterm.json` — iTerm2 profile. `manual_installations.md` — zsh plugins needing manual setup (zsh-histdb).
 
-### Known stale
+### .osx
 
-`.osx` is largely 2014-era macOS defaults and has not been audited.
+`.osx` was audited for macOS 15 Sequoia on Apple Silicon (Oct 2026). Must run under `bash`: sourcing it leaves the sudo keep-alive loop running in your shell.
