@@ -49,15 +49,15 @@ alias gurl='curl --compressed'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Flush DNS cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
 # HTTP method shortcuts via lwp-request
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
@@ -148,8 +148,8 @@ alias npmglobal="ls $(npm root -g)"
 # Show npm scripts for current project (requires bat + jq)
 alias npmscripts="bat package.json | jq \".scripts\""
 
-# Remove a git repository (destructive — use with care)
-alias gitclean="rm -rf .git"
+# Remove a git repository (destructive — prompts for each file)
+alias gitclean="rm -rfi .git"
 
 # Open fzf with syntax-highlighted preview via bat
 alias preview="fzf --preview 'bat --color \"always\" {}'"
@@ -157,11 +157,16 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 # LÖVE 2D game engine shortcut
 alias love="/Applications/love.app/Contents/MacOS/love"
 
-# Run AutoGPT via Docker (note: $PWD must be evaluated at runtime, hence single quotes)
-alias autogpt='cd ~/projects/Auto-GPT && docker run -it --env-file=./.env -v $PWD/auto_gpt_workspace:/app/auto_gpt_workspace autogpt'
-
 # ── Python ─────────────────────────────────────────────────────────────────────
 
 # Always use Homebrew Python 3
 alias python="/opt/homebrew/bin/python3"
 alias python3="/opt/homebrew/bin/python3"
+alias pip=pip3
+
+# AI Tools!
+alias fooocus="cd ~/projects/agi-tools/Fooocus/ && python3 entry_with_update.py"
+alias agentgpt="cd ~/projects/agi-tools/AgentGPT/ && ./setup.sh"
+# Single quotes so $PWD is evaluated at runtime
+alias autogpt='cd ~/projects/Auto-GPT && docker run -it --env-file=./.env -v $PWD/auto_gpt_workspace:/app/auto_gpt_workspace autogpt'
+alias fabric='fabric-ai'
