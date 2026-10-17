@@ -1,37 +1,44 @@
 # Omar's dotfiles
-(based on Mathias’s dotfiles)
+
+Zsh (oh-my-zsh) dotfiles for macOS on Apple Silicon, based on
+[Mathias Bynens’s dotfiles](https://github.com/mathiasbynens/dotfiles). Bash is
+supported but secondary.
 
 ## Installation
 
+### Prerequisites
+
+Install [Homebrew](https://brew.sh) and oh-my-zsh:
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+`.zshrc` also expects these zsh add-ons:
+
+* [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) as an oh-my-zsh custom plugin
+* [zsh-histdb](https://github.com/larkery/zsh-histdb)
+
 ### Using Git and the bootstrap script
 
-You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+Clone the repository anywhere (I keep it in `~/projects/dotfiles`). The bootstrap
+script rsyncs the files into your home folder:
 
 ```bash
 git clone https://github.com/omar12/dotfiles.git && cd dotfiles && source bootstrap.sh
 ```
 
-To update, `cd` into your local `dotfiles` repository and then:
+To update, `git pull` in your local repository, then run `source bootstrap.sh`
+again (`source bootstrap.sh -f` skips the confirmation prompt).
 
-```bash
-source bootstrap.sh
-```
-
-Alternatively, to update while avoiding the confirmation prompt:
-
-```bash
-set -- -f; source bootstrap.sh
-```
+Editing a file in the repo does not affect your shell until you re-run
+`bootstrap.sh`; shells read the copies in `~`.
 
 ### Git-free install
 
-To install these dotfiles without Git:
-
 ```bash
-cd; curl -#L https://github.com/omar12/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt}
+cd; curl -#L https://github.com/omar12/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt,.osx}
 ```
-
-To update later on, just run that command again.
 
 ### Specify the `$PATH`
 
@@ -66,15 +73,6 @@ You can also use `~/.extra` to override settings, functions and aliases.
 `.zshrc` or `.functions` — those are tracked. `~/.extra` is absent from this repo, so
 `bootstrap.sh` never overwrites it and git never sees it.
 
-### Sensible OS X defaults
-
-When setting up a new Mac, you may want to set some sensible OS X defaults:
-
-```bash
-./.osx
-```
-
-
 ### Install Homebrew packages
 
 `Brewfile` is a snapshot of the installed formulae, casks and taps
@@ -84,24 +82,31 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 brew bundle
 ```
 
-### Install oh-my-zsh
+### Global npm packages
+
+Node is managed by nvm, so install globals after `nvm install`:
+
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+source npm.sh
+```
+
+### macOS defaults
+
+`.osx` sets macOS defaults and restarts Finder and the Dock. Much of it dates from
+2014 and has not been audited, so read it before running:
+
+```bash
+source .osx
 ```
 
 ## Feedback
 
 Suggestions/improvements
-[welcome](https://github.com/mathiasbynens/dotfiles/issues)!
-
-## Author
-
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](http://mathiasbynens.be/) |
+[welcome](https://github.com/omar12/dotfiles/issues)!
 
 ## Thanks to…
 
+* [Mathias Bynens](https://mathiasbynens.be/) and his [dotfiles repository](https://github.com/mathiasbynens/dotfiles), which this is based on
 * @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
 * [Chris Gerke](http://www.randomsquared.com/) and his [tutorial on creating an OS X SOE master image](http://chris-gerke.blogspot.com/2012/04/mac-osx-soe-master-image-day-7.html) + [_Insta_ repository](https://github.com/cgerke/Insta)
