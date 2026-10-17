@@ -92,11 +92,12 @@ source npm.sh
 
 ### macOS defaults
 
-`.osx` sets macOS defaults and restarts Finder and the Dock. Much of it dates from
-2014 and has not been audited, so read it before running:
+`.osx` sets macOS defaults (audited for macOS 15 Sequoia on Apple Silicon) and
+restarts Finder and the Dock. Run it with `bash`, not `source`. Give your terminal
+Full Disk Access first, or the Safari settings fail:
 
 ```bash
-source .osx
+bash .osx
 ```
 
 ## Feedback
